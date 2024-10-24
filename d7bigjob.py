@@ -39,12 +39,19 @@ def player1 ():
         return a
 
 def player2 ():
-    b=int(input("Player 2, give a number corresponding to the grid to play : "))
-    while b < 1 or b > 9 or grid[b-1] != " ":
-        b=int(input("Player 2, please give a CORRECT UNUSED number corresponding to the grid to play : "))
-    grid[b-1] = "X"
-    print_grid(grid)
-    return b
+    while True :
+        try :
+            b=int(input("Player 2, give a number corresponding to the grid to play : "))
+            while b < 1 or b > 9 or grid[b-1] != " ":
+                b=int(input("Player 2, please give a CORRECT UNUSED number corresponding to \
+                            the grid to play : "))
+                break
+        except(ValueError) :
+            b = input("Give an integer please : ")
+            b = int(b)
+        grid[b-1] = "X"
+        print_grid(grid)
+        return b
 
 def game_over(c) :
         print("Player 1 wins ! Congratulations !")
