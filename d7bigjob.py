@@ -28,9 +28,7 @@ def player1 (): #Player 1 function with loop and conditions for user input
         try :
             a=int(input("Player 1, give a number corresponding to the grid to play : "))
             while a < 1 or a > 9 or grid[a-1] != " " :
-                a=int(input("Player 1, please give a CORRECT UNUSED INTEGER number corresponding \
-                            to the grid to play : "))
-                break
+                a=int(input("Player 1, please give a CORRECT UNUSED INTEGER number corresponding to the grid to play : "))
         except(ValueError) : #Handling non-integers input
             a=input("Give an integer please :")
             a=int(a)
@@ -43,9 +41,7 @@ def player2 (): #Player 2 function with loop and conditions for user input
         try :
             b=int(input("Player 2, give a number corresponding to the grid to play : "))
             while b < 1 or b > 9 or grid[b-1] != " ":
-                b=int(input("Player 2, please give a CORRECT UNUSED number corresponding to \
-                            the grid to play : "))
-                break
+                b=int(input("Player 2, please give a CORRECT UNUSED number corresponding to the grid to play : "))
         except(ValueError) : #Handling non integers input
             b = input("Give an integer please : ")
             b = int(b)
@@ -53,11 +49,13 @@ def player2 (): #Player 2 function with loop and conditions for user input
         print_grid(grid)
         return b
 
-def game_over(c) : #Winning conditions
-        print("Player 1 wins ! Congratulations !")
+def game_over() : #Winning conditions
+        if grid[0:3] or grid[3:6] or grid[6:9] == "O" :
+            isOver=True
+            print("Player 1 wins ! Congratulations !")
         print("Player 2 wins ! Congratulations !")
         print("This is a draw... Try again !")
     
-while True :
+while isOver == False :
         player1()
         player2()
