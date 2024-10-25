@@ -1,13 +1,4 @@
 # Day 7 TicTacToe - with List
-# Need to use "try" and "except" for value errors (program will not crash if provided something else than int)
-# Need to make a function for winning / losing / draw
-# Need to make a bot or AI, or both
-# Presentation :
-# Make slides
-# Demonstrate
-# Explain code
-# Improvements
-# Questions
 
 grid = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]  # Grid "tutorial" for numbers by user
 isOver = False
