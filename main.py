@@ -1,7 +1,6 @@
 # Day 7 TicTacToe - with List
 
 grid = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]  # Grid "tutorial" for numbers by user
-isOver = False
 
 def print_grid(a):
     print(a[0:3])
