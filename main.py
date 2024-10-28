@@ -75,7 +75,7 @@ def bot():
         
 # Game select & infinite Loop that checks for player turns & winner check
 game_select = int(input("Choose a game mode : 1 for PvP, 2 for PvE : "))
-if game_select == 1 :
+if game_select == 1 : # 2 players mode
     while True:
         player1()
         winner = check_winner()
@@ -94,7 +94,7 @@ if game_select == 1 :
             else:
                 print(f"Player {1 if winner == 'O' else 2} wins! Congratulations!")
             break
-else :
+else : # 1 player mode
     while True:
         player1()
         winner = check_winner()
