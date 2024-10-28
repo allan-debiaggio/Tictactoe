@@ -92,7 +92,7 @@ if game_select == 1 :
             if winner == "Draw":
                 print("This is a draw... Try again!")
             else:
-                print(f"Player {1 if winner == 'X' else 2} wins! Congratulations!")
+                print(f"Player {1 if winner == 'O' else 2} wins! Congratulations!")
             break
 else :
     while True:
@@ -102,7 +102,7 @@ else :
             if winner == "Draw":
                 print("This is a draw... Try again!")
             else:
-                print(f"Player {1 if winner == 'O' else 2} wins! Congratulations!")
+                print(f"Player {1 if winner == 'O' else "bot"} wins! Congratulations!")
             break
         bot()
         winner = check_winner()
