@@ -1,5 +1,14 @@
 # Day 7 TicTacToe - with List
-
+# Need to use "try" and "except" for value errors (program will not crash if provided something else than int)
+# Need to make a function for winning / losing / draw
+# Need to make a bot or AI, or both
+# Presentation :
+# Make slides
+# Demonstrate
+# Explain code
+# Improvements
+# Questions
+import random
 grid = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]  # Grid "tutorial" for numbers by user
 
 def print_grid(a):
@@ -53,24 +62,53 @@ def player2():  # Player 2 function with loop and conditions for user input
         print_grid(grid)
         return b
 
+def bot():
+    while True :
+        c = random.randrange(1,10)
+        if grid[c-1] != " ":
+            c = random.randrange(1,10)
+        else :
+            print("The bot took its turn !")
+            grid[c-1] = "X"
+            print_grid(grid)
+            return c
+        
+# Game select & infinite Loop that checks for player turns & winner check
+game_select = int(input("Choose a game mode : 1 for PvP, 2 for PvE : "))
+if game_select == 1 :
+    while True:
+        player1()
+        winner = check_winner()
+        if winner:
+            if winner == "Draw":
+                print("This is a draw... Try again!")
+            else:
+                print(f"Player {1 if winner == 'O' else 2} wins! Congratulations!")
+            break
 
-# Infinite Loop that checks for player turns & winner check
-
-while True:
-    player1()
-    winner = check_winner()
-    if winner:
-        if winner == "Draw":
-            print("This is a draw... Try again!")
-        else:
-            print(f"Player {1 if winner == 'O' else 2} wins! Congratulations!")
-        break
-
-    player2()
-    winner = check_winner()
-    if winner:
-        if winner == "Draw":
-            print("This is a draw... Try again!")
-        else:
-            print(f"Player {1 if winner == 'X' else 2} wins! Congratulations!")
-        break
+        player2()
+        winner = check_winner()
+        if winner:
+            if winner == "Draw":
+                print("This is a draw... Try again!")
+            else:
+                print(f"Player {1 if winner == 'X' else 2} wins! Congratulations!")
+            break
+else :
+    while True:
+        player1()
+        winner = check_winner()
+        if winner:
+            if winner == "Draw":
+                print("This is a draw... Try again!")
+            else:
+                print(f"Player {1 if winner == 'O' else 2} wins! Congratulations!")
+            break
+        bot()
+        winner = check_winner()
+        if winner:
+            if winner == "Draw":
+                print("This is a draw... Try again!")
+            else:
+                print(f"Player {1 if winner == 'O' else "bot"} wins! Congratulations!")
+            break
